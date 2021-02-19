@@ -2,7 +2,7 @@ const express = require("express");
 const logger = require("morgan"); 
 const Mongoose = require("mongoose");
 
-const PORT = 3002;
+const PORT = process.env.PORT||3000;
 const app = express(); 
 
 app.use(logger("dev"));
@@ -12,7 +12,7 @@ app.use(express.json());
 
 app.use(express.static("public"));
 
-Mongoose.connect("mongodb://localhost/workout", {
+Mongoose.connect("mongodb://localhost/fitnessdb", {
   useNewUrlParser: true,
   useFindAndModify: false
 });
